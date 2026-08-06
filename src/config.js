@@ -65,6 +65,7 @@ const BASE = {
     builderHeading: ['Build it.', 'Watch the price.'],
     builderBlurb:
       'Pick your meat, load it how you want it, ring it through. What you see is what goes in the wrap.',
+    favouritesHeading: ['Shop favourites', '— pick one, then build it your way'],
     hoursHeading: ['Open', 'every night'],
     locationHeading: ['Ready when', 'you are'],
     locationBlurb: "You'll smell the grill before you see the sign.",
@@ -97,18 +98,17 @@ const BASE = {
   // meal deals aren't filmed and deliberately aren't here — see PITCH.md.
   builder: {
     // ── Shop favourites ──────────────────────────────────────────────────────
-    // One tap loads the whole build. The card art is the real end frame of that
-    // combination, resolved through the same variant lookup the panel uses — so
-    // each of these gets truer as its clips land, and never oversells.
-    // `filmed: false` marks a combination the library doesn't cover properly
-    // yet; it still works, it just falls back to a less specific clip.
+    // A shortcut into the builder, not a pre-filled order. `sel` describes the
+    // build the card pictures — its art is that combination's real end frame,
+    // resolved through the same variant lookup the panel uses, so it gets truer
+    // as clips land and never oversells. Tapping applies only the meat: the
+    // salad and the sauce stay the customer's to pick and to watch land.
     bestSellers: [
       {
         id: 'fav-doner-salad-garlic',
         tab: 'kebabs',
         name: 'Doner, Salad & Garlic',
         desc: 'The one everyone orders',
-        filmed: false,
         sel: { meat: ['doner'], bread: ['flatbread'], salad: ['salad-full'], sauce: ['garlic'], extras: [] },
       },
       {
@@ -116,7 +116,6 @@ const BASE = {
         tab: 'kebabs',
         name: 'Doner, Salad & Chilli',
         desc: 'For the ones who can take it',
-        filmed: false,
         sel: { meat: ['doner'], bread: ['flatbread'], salad: ['salad-full'], sauce: ['chilli'], extras: [] },
       },
       {
@@ -124,7 +123,6 @@ const BASE = {
         tab: 'kebabs',
         name: 'Chicken, Salad & Garlic',
         desc: 'Chicken doner done properly',
-        filmed: false,
         sel: { meat: ['chicken-doner'], bread: ['flatbread'], salad: ['salad-full'], sauce: ['garlic'], extras: [] },
       },
       {
@@ -132,7 +130,6 @@ const BASE = {
         tab: 'kebabs',
         name: 'The Full Works',
         desc: 'Salad, chillies, garlic & chilli',
-        filmed: false,
         sel: { meat: ['doner'], bread: ['flatbread'], salad: ['salad-works'], sauce: ['garlic-chilli'], extras: [] },
       },
       {
@@ -140,7 +137,6 @@ const BASE = {
         tab: 'kebabs',
         name: 'Doner & Halloumi',
         desc: 'Squeaky cheese on top',
-        filmed: true,
         sel: { meat: ['doner'], bread: ['flatbread'], salad: [], sauce: [], extras: ['halloumi'] },
       },
       {
@@ -148,7 +144,6 @@ const BASE = {
         tab: 'burgers',
         name: 'Smash, Cheese & Salad',
         desc: 'Quarter pounder, dressed',
-        filmed: true,
         sel: { patty: ['quarter'], bun: ['brioche'], toppings: ['cheese-salad'], sauce: ['no-sauce'], extras: [] },
       },
       {
@@ -156,7 +151,6 @@ const BASE = {
         tab: 'burgers',
         name: 'The Lot',
         desc: 'Cheese, bacon, the works',
-        filmed: true,
         sel: { patty: ['quarter'], bun: ['brioche'], toppings: ['the-works'], sauce: ['no-sauce'], extras: [] },
       },
     ],
