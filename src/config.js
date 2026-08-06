@@ -96,6 +96,71 @@ const BASE = {
   // Only what the film covers. Yummies' pizza, wraps, chicken strips and
   // meal deals aren't filmed and deliberately aren't here — see PITCH.md.
   builder: {
+    // ── Shop favourites ──────────────────────────────────────────────────────
+    // One tap loads the whole build. The card art is the real end frame of that
+    // combination, resolved through the same variant lookup the panel uses — so
+    // each of these gets truer as its clips land, and never oversells.
+    // `filmed: false` marks a combination the library doesn't cover properly
+    // yet; it still works, it just falls back to a less specific clip.
+    bestSellers: [
+      {
+        id: 'fav-doner-salad-garlic',
+        tab: 'kebabs',
+        name: 'Doner, Salad & Garlic',
+        desc: 'The one everyone orders',
+        filmed: false,
+        sel: { meat: ['doner'], bread: ['flatbread'], salad: ['salad-full'], sauce: ['garlic'], extras: [] },
+      },
+      {
+        id: 'fav-doner-salad-chilli',
+        tab: 'kebabs',
+        name: 'Doner, Salad & Chilli',
+        desc: 'For the ones who can take it',
+        filmed: false,
+        sel: { meat: ['doner'], bread: ['flatbread'], salad: ['salad-full'], sauce: ['chilli'], extras: [] },
+      },
+      {
+        id: 'fav-chicken-salad-garlic',
+        tab: 'kebabs',
+        name: 'Chicken, Salad & Garlic',
+        desc: 'Chicken doner done properly',
+        filmed: false,
+        sel: { meat: ['chicken-doner'], bread: ['flatbread'], salad: ['salad-full'], sauce: ['garlic'], extras: [] },
+      },
+      {
+        id: 'fav-doner-works',
+        tab: 'kebabs',
+        name: 'The Full Works',
+        desc: 'Salad, chillies, garlic & chilli',
+        filmed: false,
+        sel: { meat: ['doner'], bread: ['flatbread'], salad: ['salad-works'], sauce: ['garlic-chilli'], extras: [] },
+      },
+      {
+        id: 'fav-halloumi',
+        tab: 'kebabs',
+        name: 'Doner & Halloumi',
+        desc: 'Squeaky cheese on top',
+        filmed: true,
+        sel: { meat: ['doner'], bread: ['flatbread'], salad: [], sauce: [], extras: ['halloumi'] },
+      },
+      {
+        id: 'fav-burger-dressed',
+        tab: 'burgers',
+        name: 'Smash, Cheese & Salad',
+        desc: 'Quarter pounder, dressed',
+        filmed: true,
+        sel: { patty: ['quarter'], bun: ['brioche'], toppings: ['cheese-salad'], sauce: ['no-sauce'], extras: [] },
+      },
+      {
+        id: 'fav-burger-works',
+        tab: 'burgers',
+        name: 'The Lot',
+        desc: 'Cheese, bacon, the works',
+        filmed: true,
+        sel: { patty: ['quarter'], bun: ['brioche'], toppings: ['the-works'], sauce: ['no-sauce'], extras: [] },
+      },
+    ],
+
     tabs: [
       {
         id: 'kebabs',
